@@ -58,7 +58,8 @@
     // Initialize Cloud Firestore and get a reference to the service
     const db = getFirestore(app);
     //const db = getFirestore(app);
-    try {
+    async function  pruebaFirestore(){
+      try {
       console.log("Primer acto");
   const docRef = await addDoc(collection(db, "users"), {
     
@@ -70,6 +71,9 @@
 } catch (e) {
   console.error("Error adding document: ", e);
 }
+    }
+    pruebaFirestore();
+    
   </script>
   <script src="/JS/app.js" type="module"></script>
 </body>
