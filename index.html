@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="/css/styles.css" />
+  <title>todo app</title>
+</head>
+
+<body>
+  <div id="app">
+    <button id="button-login">Login with Google</button>
+    <button id="button-logout" class="hidden">Logout</button>
+    <form id="todo-form" class="hidden">
+      <div id="user-info"></div>
+      <input id="todo-input" type="text" placeholder="Todo" autocomplete="off" />
+    </form>
+
+    <div id="todos-container"></div>
+  </div>
+  <!-- The core Firebase JS SDK is always required and must be listed first 
+    <script src="https://www.gstatic.com/firebasejs/8.9.1/firebase-app.js"></script>-->
+
+  <!-- TODO: Add SDKs for Firebase products that you want to use
+    https://firebase.google.com/docs/web/setup#available-libraries 
+    <script src="https://www.gstatic.com/firebasejs/8.9.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.9.1/firebase-firestore.js"></script>-->
+
+  <script type="module">
+    // Import the functions you need from the SDKs you need
+   // import { initializeApp } from "firebase/app";
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.1.0/firebase-app.js";
+    //import { getAuth } from "firebase/auth";
+    //import { getFirestore, collection, addDoc} from "firebase/firestore";
+    //import { } from "firebase/firestore"; 
+
+    // TODO: Add SDKs for Firebase products that you want to use
+    // https://firebase.google.com/docs/web/setup#available-libraries
+
+
+    // Your web app's Firebase configuration
+    const firebaseConfig = {
+      apiKey: "AIzaSyAa4xIEYiaZpSX28-yh6l0qMs1iaWbXXKI",
+      authDomain: "todo-1f700.firebaseapp.com",
+      projectId: "todo-1f700",
+      storageBucket: "todo-1f700.appspot.com",
+      messagingSenderId: "941103776896",
+      appId: "1:941103776896:web:948b0ed269780ed5cb5265"
+    };
+    // Initialize Firebase
+    console.log("antes de initialize")
+    firebase.initializeApp(firebaseConfig);
+    // Initialize Firebase Authentication and get a reference to the service
+    console.log("Antes de auth")
+    const auth = getAuth(app);
+    // Initialize Cloud Firestore and get a reference to the service
+    const db = getFirestore(app);
+    //const db = getFirestore(app);
+    try {
+      console.log("Primer acto");
+  const docRef = await addDoc(collection(db, "users"), {
+    
+    first: "Ada",
+    last: "Lovelace",
+    born: 1815
+  });
+  console.log("Document written with ID: ", docRef.id);
+} catch (e) {
+  console.error("Error adding document: ", e);
+}
+  </script>
+  <script src="/JS/app.js" type="module"></script>
+</body>
+
+</html>
